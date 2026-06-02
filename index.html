@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>MAGGI LEGEND | The Art of Survival</title>
@@ -13,53 +13,20 @@
         theme: {
           extend: {
             "colors": {
-                    "on-primary-fixed-variant": "#564500",
-                    "on-error-container": "#93000a",
                     "primary": "#725c00",
-                    "on-tertiary-fixed-variant": "#004f56",
-                    "tertiary-fixed-dim": "#00dbed",
-                    "on-secondary-fixed-variant": "#474744",
-                    "secondary-fixed-dim": "#c8c6c3",
-                    "primary-fixed-dim": "#edc200",
-                    "error-container": "#ffdad6",
-                    "surface-container-highest": "#e5e2e1",
-                    "surface-variant": "#e5e2e1",
-                    "tertiary-fixed": "#8df2ff",
-                    "surface-container": "#f0eded",
-                    "outline": "#7f765f",
-                    "on-secondary": "#ffffff",
-                    "inverse-on-surface": "#f3f0ef",
-                    "primary-fixed": "#ffe07f",
-                    "background": "#fcf9f8",
                     "primary-container": "#ffd100",
-                    "surface": "#fcf9f8",
-                    "surface-container-low": "#f6f3f2",
-                    "outline-variant": "#d1c6ab",
-                    "secondary": "#5e5e5c",
-                    "surface-tint": "#725c00",
-                    "surface-dim": "#dcd9d9",
-                    "error": "#ba1a1a",
-                    "surface-bright": "#fcf9f8",
-                    "on-surface-variant": "#4d4632",
-                    "tertiary": "#006972",
-                    "secondary-fixed": "#e4e2de",
-                    "on-tertiary-container": "#006670",
-                    "on-tertiary-fixed": "#001f23",
-                    "on-secondary-container": "#636360",
-                    "on-primary": "#ffffff",
-                    "on-primary-fixed": "#231b00",
-                    "inverse-surface": "#313030",
-                    "on-background": "#1c1b1b",
-                    "on-surface": "#1c1b1b",
-                    "on-tertiary": "#ffffff",
-                    "secondary-container": "#e1dfdc",
-                    "on-secondary-fixed": "#1b1c1a",
-                    "on-error": "#ffffff",
                     "on-primary-container": "#6f5a00",
-                    "surface-container-lowest": "#ffffff",
-                    "tertiary-container": "#0bebff",
-                    "inverse-primary": "#edc200",
-                    "surface-container-high": "#eae7e7"
+                    "surface": "#fcf9f8",
+                    "surface-container": "#f0eded",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-surface": "#1c1b1b",
+                    "on-surface-variant": "#4d4632",
+                    "secondary": "#5e5e5c",
+                    "outline": "#7f765f",
+                    "outline-variant": "#d1c6ab",
+                    "inverse-surface": "#313030",
+                    "inverse-on-surface": "#f3f0ef",
             },
             "borderRadius": {
                     "DEFAULT": "0.125rem",
@@ -77,563 +44,460 @@
             },
             "fontFamily": {
                     "display-lg": ["Playfair Display"],
-                    "display-lg-mobile": ["Playfair Display"],
                     "headline-md": ["Playfair Display"],
                     "headline-sm": ["Playfair Display"],
                     "body-lg": ["Inter"],
                     "label-caps": ["JetBrains Mono"],
                     "body-md": ["Inter"]
-            },
-            "fontSize": {
-                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "display-lg-mobile": ["42px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                    "headline-md": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
-                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "500"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
             }
           },
         },
       }
     </script>
 <style>
-        .manga-panel {
-            clip-path: polygon(0 0, 100% 2%, 98% 100%, 2% 98%);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .manga-panel:hover {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-        .slide-fill-btn {
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .slide-fill-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: #1c1b1b;
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-        .slide-fill-btn:hover::before {
-            left: 0;
-        }
-        .slide-fill-btn:hover {
-            color: #ffd100;
-        }
-        .steam-anim {
-            animation: steam 3s infinite ease-in-out;
-            opacity: 0.6;
-        }
-        @keyframes steam {
-            0%, 100% { transform: translateY(0) scaleX(1); opacity: 0.4; }
-            50% { transform: translateY(-15px) scaleX(1.2); opacity: 0.8; }
-        }
-        
-        /* Particle & Steam Micro-animations */
         .steam-particle {
             position: absolute;
-            width: 2px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.3);
-            filter: blur(1px);
-            animation: rise 4s infinite linear;
+            background: rgba(255, 255, 255, 0.4);
+            filter: blur(8px);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: steam-rise 4s infinite ease-out;
         }
-        @keyframes rise {
+        @keyframes steam-rise {
             0% { transform: translateY(0) scale(1); opacity: 0; }
-            20% { opacity: 0.5; }
+            20% { opacity: 0.6; }
             100% { transform: translateY(-100px) scale(2); opacity: 0; }
         }
+        .typewriter::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, #725c00 10%, #725c00 90%, transparent);
+        }
+        
+        .alchemy-circle {
+            background: radial-gradient(circle, transparent 40%, rgba(255, 209, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 209, 0, 0.2);
+            animation: rotate-slow 20s linear infinite;
+        }
+        @keyframes rotate-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* Mouse Tracking Glow */
-        .glow-btn {
-            position: relative;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.4) 0%, transparent 60%);
-        }
+        .reveal-hidden { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-visible { opacity: 1; transform: translateY(0); }
 
-        /* Staggered Text Reveal */
-        .reveal-text span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal-text.active span {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Shimmer Effect */
-        .shimmer-gold {
-            background: linear-gradient(90deg, transparent 0%, rgba(255,209,0,0.1) 50%, transparent 100%);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        /* Depth Hover */
-        .depth-card {
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .depth-card:hover {
-            transform: scale(1.02) translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Dust Particles */
-        #particle-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .terminal-overlay {
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 2px);
             pointer-events: none;
-            z-index: 1;
         }
 
-        /* Reveal Animation Classes */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .anime-card {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+            transition: all 0.5s ease;
         }
-        .reveal-on-scroll.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .reveal-on-scroll, .reveal-text span, .depth-card, .steam-anim, .manga-panel {
-                transition: none !important;
-                animation: none !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
+        .anime-card:hover {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
     </style>
 </head>
-<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/40 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-4">
-<div class="font-display-lg-mobile text-headline-sm text-primary tracking-tighter">MAGGI LEGEND</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#story">Story</a>
-<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#alchemy">AI Lab</a>
-<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#statistics">Statistics</a>
-<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#personas">Persona</a>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-5">
+<div class="font-display-lg text-2xl text-primary tracking-tighter italic">MAGGI LEGEND</div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-label-caps text-xs tracking-widest text-on-surface hover:text-primary transition-colors" href="#journey">Journey</a>
+<a class="font-label-caps text-xs tracking-widest text-on-surface hover:text-primary transition-colors" href="#alchemy">Alchemy</a>
+<a class="font-label-caps text-xs tracking-widest text-on-surface hover:text-primary transition-colors" href="#stats">Index</a>
+<a class="font-label-caps text-xs tracking-widest text-on-surface hover:text-primary transition-colors" href="#legends">Hall of Legends</a>
 </div>
-<button class="slide-fill-btn bg-primary-container text-on-primary-container px-6 py-2 font-label-caps text-label-caps transition-all active:scale-95">
-            Shop Legend
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-caps text-[10px] tracking-[0.2em] hover:bg-on-surface hover:text-surface-container-lowest transition-all">
+            SHOP LEGEND
         </button>
 </div>
 </nav>
 <!-- Hero Section -->
-<header class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-<canvas class="absolute inset-0 pointer-events-none opacity-40 z-10" id="hero-particles" width="300" height="150"></canvas>
+<header class="relative h-screen flex flex-col items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-gradient-to-b from-surface/20 via-transparent to-surface z-10"></div>
-<img alt="Hero Cinematic" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQazWDZyq6xPJLzrYt9RJbYZ2CL-KJ5YNP6Cez0UqlG1bPeayAGGT0R0fqJR5hU_IbK2U705lvmY1Xii8lDpi5bxI9MAy5s6WAyEXnnDAn6nrYtaVwjRMYyWXrtTEuO3DpYY8jd2y_NpxVn3HriMB4x9qP6Oa5fDCQzW_JmfRtwArV90vSMHtSNhwzgXxMLr4S7_sn6cddWsBMP9kDdHn2OICHyIgA2p4F-eFUCmzrIo9gw9QSNU0fCgLJI16HVp70egdeUTYj9Fg">
+<img alt="Hostel Night" class="w-full h-full object-cover scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLs0-38TwQOEbnCnb_j5Q0sAP8_dYPVqsW7uZ8CGAR99hIarfuHcJgEBepwxZ8tUn7rze52QGiS9TJTer64LvSw8eT49eCrZuQz7-8crQZIpjet2Fkk0tHqzbbIac2bK2pagp-PeptyE7U-PDoXofsAZ_pobNjEnldTFlG8YrdKHLAW76Vv-oP-GAsaICN6Kn7RU0mRjLhPIdCl5XvsoN1efPOtgQ_ZC2rb7FirUR3udmkb6mX81vYfgUzM">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
 </div>
-<div class="relative z-20 text-center px-6 max-w-4xl">
-<div class="inline-block px-3 py-1 mb-6 border border-primary/40 bg-surface/60 backdrop-blur-md reveal-on-scroll active">
-<span class="font-label-caps text-label-caps text-primary tracking-[0.3em]">THE COMPANION CHRONICLES</span>
-</div>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">E</span><span style="transition-delay: 30ms;" class="">V</span><span style="transition-delay: 60ms;" class="">E</span><span style="transition-delay: 90ms;" class="">R</span><span style="transition-delay: 120ms;" class="">Y</span><span style="transition-delay: 150ms;">&nbsp;</span><span style="transition-delay: 180ms;" class="">L</span><span style="transition-delay: 210ms;" class="">E</span><span style="transition-delay: 240ms;" class="">G</span><span style="transition-delay: 270ms;" class="">E</span><span style="transition-delay: 300ms;" class="">N</span><span style="transition-delay: 330ms;" class="">D</span><span style="transition-delay: 360ms;">&nbsp;</span><span style="transition-delay: 390ms;" class="">H</span><span style="transition-delay: 420ms;" class="">A</span><span style="transition-delay: 450ms;" class="">S</span><span style="transition-delay: 480ms;">&nbsp;</span><span style="transition-delay: 510ms;" class="">A</span><span style="transition-delay: 540ms;">&nbsp;</span><span style="transition-delay: 570ms;" class="">C</span><span style="transition-delay: 600ms;" class="">O</span><span style="transition-delay: 630ms;" class="">M</span><span style="transition-delay: 660ms;" class="">P</span><span style="transition-delay: 690ms;" class="">A</span><span style="transition-delay: 720ms;" class="">N</span><span style="transition-delay: 750ms;" class="">I</span><span style="transition-delay: 780ms;" class="">O</span><span style="transition-delay: 810ms;" class="">N</span><span style="transition-delay: 840ms;" class="">.</span></h1>
-<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto mb-12 reveal-on-scroll active" style="transition-delay: 200ms">
-            The silent witness to every 4 AM epiphany and every deadline survived. 
-            A warm bowl, a clear mind, a path to greatness.
+<div class="relative z-10 text-center px-6 max-w-4xl">
+<span class="font-label-caps text-xs tracking-[0.4em] text-primary mb-8 block reveal-hidden reveal-visible">THE COMPANION CHRONICLES</span>
+<h1 class="font-display-lg text-6xl md:text-8xl mb-8 leading-tight reveal-hidden reveal-visible" style="transition-delay: 200ms;">
+            EVERY <span class="italic text-primary">LEGEND</span><br>HAS A COMPANION.
+        </h1>
+<p class="font-body-lg text-secondary max-w-xl mx-auto mb-12 reveal-hidden reveal-visible" style="transition-delay: 400ms;">
+            For hostel warriors, it was never just noodles. It was the witness to every epiphany and every deadline survived.
         </p>
-<div class="flex flex-col md:flex-row gap-4 justify-center items-center reveal-on-scroll active" style="transition-delay: 400ms">
-<a class="slide-fill-btn glow-btn bg-primary-container text-on-primary-container px-10 py-4 font-label-caps text-label-caps w-full md:w-auto text-center cursor-pointer" href="#story">
-                Begin the Journey
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center reveal-hidden reveal-visible" style="transition-delay: 600ms">
+<a class="bg-on-surface text-surface px-12 py-5 font-label-caps text-xs tracking-widest hover:bg-primary transition-all shadow-2xl" href="#journey">
+                START THE JOURNEY
             </a>
-<div class="flex items-center gap-2 font-label-caps text-label-caps text-secondary cursor-pointer hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">play_arrow</span>
-                WATCH THE PRELUDE
-            </div>
 </div>
-</div>
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40 z-20">
-<span class="material-symbols-outlined text-display-lg-mobile">expand_more</span>
 </div>
 </header>
-<!-- The Story (Scroll Experience) -->
-<section class="py-24 md:py-48 px-6 md:px-margin-desktop max-w-container-max mx-auto space-y-32 md:space-y-64" id="story">
-<!-- Panel 1 -->
-<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-12 group reveal-on-scroll active">
-<div class="md:col-span-7 manga-panel overflow-hidden border-2 border-on-surface bg-surface-container-low shadow-2xl relative">
-<img alt="Midnight Oil" class="w-full aspect-video object-cover transition-transform duration-700 js-parallax" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQazWDZyq6xPJLzrYt9RJbYZ2CL-KJ5YNP6Cez0UqlG1bPeayAGGT0R0fqJR5hU_IbK2U705lvmY1Xii8lDpi5bxI9MAy5s6WAyEXnnDAn6nrYtaVwjRMYyWXrtTEuO3DpYY8jd2y_NpxVn3HriMB4x9qP6Oa5fDCQzW_JmfRtwArV90vSMHtSNhwzgXxMLr4S7_sn6cddWsBMP9kDdHn2OICHyIgA2p4F-eFUCmzrIo9gw9QSNU0fCgLJI16HVp70egdeUTYj9Fg">
-<div class="absolute top-4 right-4 bg-primary px-3 py-1 text-on-primary font-label-caps text-[10px] z-10">PANEL NO. 01</div>
-<!-- Steam effect overlay -->
-<div class="absolute inset-0 pointer-events-none js-steam-container"><div class="steam-particle" style="left: 51.1141%; bottom: 20%; animation-duration: 4.81067s;"></div><div class="steam-particle" style="left: 68.5654%; bottom: 20%; animation-duration: 3.57836s;"></div><div class="steam-particle" style="left: 12.0949%; bottom: 20%; animation-duration: 3.57297s;"></div><div class="steam-particle" style="left: 88.8834%; bottom: 20%; animation-duration: 4.51163s;"></div><div class="steam-particle" style="left: 22.9075%; bottom: 20%; animation-duration: 3.12292s;"></div></div>
-</div>
-<div class="md:col-span-5 space-y-6">
-<span class="font-label-caps text-label-caps text-primary">CHAPTER 01</span>
-<h2 class="font-headline-md text-headline-md italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">T</span><span style="transition-delay: 30ms;" class="">h</span><span style="transition-delay: 60ms;" class="">e</span><span style="transition-delay: 90ms;">&nbsp;</span><span style="transition-delay: 120ms;" class="">M</span><span style="transition-delay: 150ms;" class="">i</span><span style="transition-delay: 180ms;" class="">d</span><span style="transition-delay: 210ms;" class="">n</span><span style="transition-delay: 240ms;" class="">i</span><span style="transition-delay: 270ms;" class="">g</span><span style="transition-delay: 300ms;" class="">h</span><span style="transition-delay: 330ms;" class="">t</span><span style="transition-delay: 360ms;">&nbsp;</span><span style="transition-delay: 390ms;" class="">O</span><span style="transition-delay: 420ms;" class="">i</span><span style="transition-delay: 450ms;" class="">l</span></h2>
-<div class="w-12 h-1 bg-primary-container"></div>
-<p class="font-body-lg text-body-lg text-secondary">
-                When the rest of the world sleeps, the Legend is forged. Surrounded by the glow of three monitors and the quiet hum of a laptop fan, the only warmth comes from the steam of the companion.
-            </p>
-<div class="flex items-center gap-4 text-primary opacity-60">
-<span class="material-symbols-outlined steam-anim">waves</span>
-<span class="font-label-caps text-[10px] tracking-widest">SENSORY DATA: MASALA AROMA DETECTED</span>
-</div>
-</div>
-</div>
-<!-- Panel 2 -->
-<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-12 group reveal-on-scroll active">
-<div class="md:col-span-5 space-y-6 md:text-right flex flex-col md:items-end">
-<span class="font-label-caps text-label-caps text-primary">CHAPTER 02</span>
-<h2 class="font-headline-md text-headline-md italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">S</span><span style="transition-delay: 30ms;" class="">y</span><span style="transition-delay: 60ms;" class="">n</span><span style="transition-delay: 90ms;" class="">t</span><span style="transition-delay: 120ms;" class="">a</span><span style="transition-delay: 150ms;" class="">x</span><span style="transition-delay: 180ms;">&nbsp;</span><span style="transition-delay: 210ms;" class="">&amp;</span><span style="transition-delay: 240ms;">&nbsp;</span><span style="transition-delay: 270ms;" class="">S</span><span style="transition-delay: 300ms;" class="">t</span><span style="transition-delay: 330ms;" class="">e</span><span style="transition-delay: 360ms;" class="">a</span><span style="transition-delay: 390ms;" class="">m</span></h2>
-<div class="w-12 h-1 bg-primary-container"></div>
-<p class="font-body-lg text-body-lg text-secondary">
-                Bug at line 402. Brain stalling. The logic starts to blur into the blue light of the screen. Two minutes. That's all the reboot takes. For both the code and the coder.
-            </p>
-</div>
-<div class="md:col-span-7 manga-panel overflow-hidden border-2 border-on-surface bg-surface-container-low shadow-2xl relative order-first md:order-last">
-<img alt="Syntax and Steam" class="w-full aspect-video object-cover transition-transform duration-700 js-parallax" src="https://lh3.googleusercontent.com/aida/AP1WRLv1XRZhhT0rrxtKPwZvpc8bStQp1zBRPSKy61a3O9XJRrrlbgyDXNHT-PWbOzx7B5t4BTG5O60Fgdo0rweTt-fjc7pOTphiOvjW4xHSAPI8paZ45yPDO1I02RTLI8Pqwcsakt2nQ_5MmzdUJqodX4OhhCYpocBRJoht5ONDAnV5Uj-tyV1A5X0qA5mUEo5bEdgwho4pw8bYoqrQmvzAnc-4MOxXOpcqnMLVlFFijNZdAX_Llp0_7bufGw">
-<div class="absolute top-4 left-4 bg-primary px-3 py-1 text-on-primary font-label-caps text-[10px] z-10">PANEL NO. 02</div>
-<div class="absolute inset-0 pointer-events-none js-steam-container"><div class="steam-particle" style="left: 42.0427%; bottom: 20%; animation-duration: 4.81962s;"></div><div class="steam-particle" style="left: 56.0714%; bottom: 20%; animation-duration: 3.83892s;"></div><div class="steam-particle" style="left: 84.2233%; bottom: 20%; animation-duration: 3.99827s;"></div><div class="steam-particle" style="left: 68.0388%; bottom: 20%; animation-duration: 4.87703s;"></div><div class="steam-particle" style="left: 84.8477%; bottom: 20%; animation-duration: 4.62069s;"></div></div>
-</div>
-</div>
-<!-- Panel 3 -->
-<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-12 group reveal-on-scroll active">
-<div class="md:col-span-7 manga-panel overflow-hidden border-2 border-on-surface bg-surface-container-low shadow-2xl relative">
-<img alt="Art of Survival" class="w-full aspect-video object-cover transition-transform duration-700 js-parallax" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4MLl-99ZEvBwNHUsZQK3rcXhS375tB24DTWqr40kb5z-wQavOj81SyOpKI4ug_g7FfaaKbHjPyU6O3wqFeNQdoq7Ox219HJ6-d7R3FbMzDYttQYSmoSf3MO2x6hoHquFyf2jeU-qlT_TV1Ya_CB8rtOgwzj-WtvYjyqzRlHm0xRrTls_W7iVaKpkuxI8tpBC6-PthEmgDDqYzmUjrm6dqowp7WXbmT-R4P-75WrwaLtbtUSfy6qytYNw-uGchdAF-qVTJgY9Ys6A">
-<div class="absolute top-4 right-4 bg-primary px-3 py-1 text-on-primary font-label-caps text-[10px] z-10">PANEL NO. 03</div>
-<div class="absolute inset-0 pointer-events-none js-steam-container"><div class="steam-particle" style="left: 16.9692%; bottom: 20%; animation-duration: 4.56869s;"></div><div class="steam-particle" style="left: 75.4285%; bottom: 20%; animation-duration: 3.16362s;"></div><div class="steam-particle" style="left: 37.8034%; bottom: 20%; animation-duration: 3.37091s;"></div><div class="steam-particle" style="left: 88.225%; bottom: 20%; animation-duration: 4.45816s;"></div><div class="steam-particle" style="left: 41.5767%; bottom: 20%; animation-duration: 3.13823s;"></div></div>
-</div>
-<div class="md:col-span-5 space-y-6">
-<span class="font-label-caps text-label-caps text-primary">CHAPTER 03</span>
-<h2 class="font-headline-md text-headline-md italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">T</span><span style="transition-delay: 30ms;" class="">h</span><span style="transition-delay: 60ms;" class="">e</span><span style="transition-delay: 90ms;">&nbsp;</span><span style="transition-delay: 120ms;" class="">A</span><span style="transition-delay: 150ms;" class="">r</span><span style="transition-delay: 180ms;" class="">t</span><span style="transition-delay: 210ms;">&nbsp;</span><span style="transition-delay: 240ms;" class="">o</span><span style="transition-delay: 270ms;" class="">f</span><span style="transition-delay: 300ms;">&nbsp;</span><span style="transition-delay: 330ms;" class="">S</span><span style="transition-delay: 360ms;" class="">u</span><span style="transition-delay: 390ms;" class="">r</span><span style="transition-delay: 420ms;" class="">v</span><span style="transition-delay: 450ms;" class="">i</span><span style="transition-delay: 480ms;" class="">v</span><span style="transition-delay: 510ms;" class="">a</span><span style="transition-delay: 540ms;" class="">l</span></h2>
-<div class="w-12 h-1 bg-primary-container"></div>
-<p class="font-body-lg text-body-lg text-secondary">
-                Day 28. The bank account shows double digits. The ambition shows seven. A gold-trimmed fork makes a humble meal a banquet for the resilient. Survival is a luxury.
-            </p>
-</div>
-</div>
-</section>
-<!-- Maggi Alchemy (Interactive Section) -->
-<section class="bg-inverse-surface py-24 md:py-32 overflow-hidden relative" id="alchemy">
-<div class="absolute inset-0 shimmer-gold opacity-10 pointer-events-none"></div>
-<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10">
-<div class="flex flex-col md:flex-row justify-between items-end gap-12 mb-20 reveal-on-scroll active">
-<div class="max-w-xl">
-<span class="font-label-caps text-label-caps text-primary-fixed mb-4 block">LABORATORY PHASE: BETA 0.4</span>
-<h2 class="font-display-lg-mobile text-display-lg-mobile text-surface-container-lowest leading-tight reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">M</span><span style="transition-delay: 30ms;" class="">A</span><span style="transition-delay: 60ms;" class="">G</span><span style="transition-delay: 90ms;" class="">G</span><span style="transition-delay: 120ms;" class="">I</span><span style="transition-delay: 150ms;">&nbsp;</span><span style="transition-delay: 180ms;" class="">A</span><span style="transition-delay: 210ms;" class="">L</span><span style="transition-delay: 240ms;" class="">C</span><span style="transition-delay: 270ms;" class="">H</span><span style="transition-delay: 300ms;" class="">E</span><span style="transition-delay: 330ms;" class="">M</span><span style="transition-delay: 360ms;" class="">Y</span></h2>
-<p class="text-secondary-fixed-dim font-body-lg mt-6">
-                    The ultimate student algorithm. Input your current resources, and we'll engineer the perfect survival meal.
-                </p>
-</div>
-<div class="hidden md:block">
-<span class="material-symbols-outlined text-primary-fixed text-[64px] animate-pulse">biotech</span>
-</div>
-</div>
-<div class="bg-surface-container-lowest/5 backdrop-blur-sm border border-white/10 p-8 md:p-12 relative reveal-on-scroll active">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-<div class="space-y-8">
-<div>
-<label class="font-label-caps text-label-caps text-primary-fixed block mb-4">WHAT'S IN YOUR CUPBOARD?</label>
-<div class="relative group">
-<input class="w-full bg-transparent border-b-2 border-outline/30 focus:border-primary-container text-white py-4 font-body-lg outline-none transition-all placeholder:text-white/20" placeholder="e.g., leftover peas, half an onion..." type="text">
-<span class="material-symbols-outlined absolute right-0 top-4 text-primary-fixed animate-pulse">search</span>
-</div>
-</div>
-<div class="flex flex-wrap gap-3">
-<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">CHILLI FLAKES</span>
-<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">STALE BREAD</span>
-<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">CHEESE SLICE</span>
-<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">HOPE</span>
-</div>
-</div>
-<div class="bg-primary-container p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 hover:bg-white relative overflow-hidden glow-btn">
-<!-- Shimmer layer for "calculating" look -->
-<div class="absolute inset-0 shimmer-gold opacity-30 pointer-events-none"></div>
-<div class="flex justify-between items-start relative z-10">
-<span class="font-label-caps text-label-caps text-on-primary-container">RECOMMENDED FORMULA</span>
-<span class="material-symbols-outlined text-on-primary-container animate-spin" style="animation-duration: 4s">auto_awesome</span>
-</div>
-<div class="relative z-10">
-<h3 class="font-headline-sm text-headline-sm text-on-primary-container mb-2">The "All-Nighter" Carbonara</h3>
-<p class="text-on-primary-container/80 font-body-md italic">Maggi + Cheese Slice + Crushed Peanuts + Stress</p>
-</div>
-<div class="mt-8 flex items-center gap-4 text-on-primary-container font-label-caps relative z-10">
-                        TRANSFORM ELEMENTS
-                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Statistics: The Hostel Pulse -->
-<section class="py-24 md:py-48 px-6 md:px-margin-desktop max-w-container-max mx-auto" id="statistics">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- Stat 1 -->
-<div class="border-l-4 border-primary p-8 bg-surface-container-low hover:bg-surface-container transition-all duration-300 reveal-on-scroll active">
-<span class="font-label-caps text-label-caps text-secondary">VOLUME</span>
-<div class="font-display-lg-mobile text-display-lg-mobile text-primary my-4 js-counter" data-target="400">400M+</div>
-<p class="font-body-md text-secondary">Packets consumed during final exam weeks globally. The essential fuel for academic breakthroughs.</p>
-</div>
-<!-- Stat 2 -->
-<div class="border-l-4 border-primary p-8 bg-surface-container-low hover:bg-surface-container transition-all duration-300 reveal-on-scroll active" style="transition-delay: 150ms">
-<span class="font-label-caps text-label-caps text-secondary">INNOVATION</span>
-<div class="font-display-lg-mobile text-display-lg-mobile text-primary my-4 js-counter" data-target="12">12K+</div>
-<p class="font-body-md text-secondary">Startups ideated and whiteboards filled while sharing a single bowl in a hostel room.</p>
-</div>
-<!-- Stat 3 -->
-<div class="border-l-4 border-primary p-8 bg-surface-container-low hover:bg-surface-container transition-all duration-300 reveal-on-scroll active" style="transition-delay: 300ms">
-<span class="font-label-caps text-label-caps text-secondary">PRECISION</span>
-<div class="font-display-lg-mobile text-display-lg-mobile text-primary my-4 js-counter" data-target="120">120S</div>
-<p class="font-body-md text-secondary">The perfect interval. Time-optimized nutrition for the relentless pursuit of excellence.</p>
-</div>
-</div>
-</section>
-<!-- Personas: Hall of Legends -->
-<section class="bg-surface-container py-24 md:py-32" id="personas">
+<!-- Semester Journey (Timeline) -->
+<section class="py-32 md:py-64 relative overflow-hidden" id="journey">
 <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
-<h2 class="font-headline-md text-headline-md mb-16 text-center italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">T</span><span style="transition-delay: 30ms;" class="">h</span><span style="transition-delay: 60ms;" class="">e</span><span style="transition-delay: 90ms;">&nbsp;</span><span style="transition-delay: 120ms;" class="">H</span><span style="transition-delay: 150ms;" class="">a</span><span style="transition-delay: 180ms;" class="">l</span><span style="transition-delay: 210ms;" class="">l</span><span style="transition-delay: 240ms;">&nbsp;</span><span style="transition-delay: 270ms;" class="">o</span><span style="transition-delay: 300ms;" class="">f</span><span style="transition-delay: 330ms;">&nbsp;</span><span style="transition-delay: 360ms;" class="">L</span><span style="transition-delay: 390ms;" class="">e</span><span style="transition-delay: 420ms;" class="">g</span><span style="transition-delay: 450ms;" class="">e</span><span style="transition-delay: 480ms;" class="">n</span><span style="transition-delay: 510ms;" class="">d</span><span style="transition-delay: 540ms;" class="">s</span></h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-panel-gap">
-<!-- Archetype 1 -->
-<div class="bg-surface p-1 border-2 border-on-surface depth-card reveal-on-scroll active">
-<div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-surface-dim">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUvF9nffFXgTlfVB_cM9c2W3k1KdubKgPEKveTm0uG_dbc0th5WqhES4qxyPY0aNZF6XEsLmf9hl73NRytEARv8rnEoEeD0GMgIIxeAJ149yV-qpd656GArN0Mg0qSKk12SblOt12cxtwsWxGhfQAW64yr3FARs6wUODBn6_jDpnKSaTZ21HoRZHsMeos_CBpuMkCC0g2eyRxzXdqgjjWnDe92qNfTMRJfTk-uQJWtnHStwikOy0o5VgKkJ2KBYNLcXZ3fQdlOXhM">
+<div class="absolute left-1/2 top-0 bottom-0 w-px timeline-line hidden md:block"></div>
+<div class="space-y-32 md:space-y-64">
+<!-- Semester 1 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="reveal-hidden reveal-visible">
+<div class="aspect-[4/3] bg-surface-container-low p-2 border border-outline-variant relative group">
+<img alt="Three college freshmen laughing and eating Maggi noodles in a hostel room." class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7PHpiCSkgL9Ej9OjHWIupDbRO0wHmgBvem-5uFNxzkcmrhC7UnCKuOHOtfJag8V1o-YeIuUkERqGL7glEpnoP1GDH-xlNEF3Fe08wX225GPni2JHDVG67Y1StLraCTyGFHCRBOtl8BFVTWq6jX-NBgOPxg5YI-RtmdGtTANiOeb70AswviRG41rvBs3LJzcM30wworcKL3h87rWKfxOTjzM7QQsT-H7D1t9Z6TNIMU-4aMoK4dc9_YRDjU_9GEyAhwsIxKQcaKyQ">
+<div class="absolute -top-4 -left-4 bg-primary text-white p-4 font-label-caps text-xs">SEM 01</div>
 </div>
-<div class="p-6">
-<span class="font-label-caps text-[10px] text-primary">TYPE-01</span>
-<h3 class="font-headline-sm text-headline-sm my-2">The All-Nighter</h3>
-<p class="text-secondary font-body-md italic">"Sleep is a luxury I'll buy once I'm successful. Maggi is the bridge to that day."</p>
+</div>
+<div class="reveal-hidden space-y-6 md:pl-12 reveal-visible">
+<h3 class="font-display-lg text-4xl italic">New Room, New Friends.</h3>
+<p class="font-body-lg text-secondary typewriter" data-started="true" data-text="The smell of seasoning packets filling the narrow corridor, marking the start of a friendship that would last a lifetime.">The smell of seasoning packets filling the narrow corridor, marking the start of a friendship that would last a lifetime.</p>
+</div>
+</div>
+<!-- Semester 3 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center md:flex-row-reverse">
+<div class="order-2 md:order-1 reveal-hidden space-y-6 md:text-right md:pr-12 reveal-visible">
+<h3 class="font-display-lg text-4xl italic">The All-Nighter.</h3>
+<p class="font-body-lg text-secondary">Coffee failed. Energy drinks crashed. But the warm bowl kept the gears turning until the sun touched the balcony.</p>
+</div>
+<div class="order-1 md:order-2 reveal-hidden reveal-visible">
+<div class="aspect-[4/3] bg-surface-container-low p-2 border border-outline-variant relative group"><div class="w-full h-full overflow-hidden">
+    <img alt="A student eating Maggi at night on a messy desk" class="w-full h-full object-cover transform scale-[1.8] group-hover:scale-100 transition-transform duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLeA9fKiyTwOIXpswBjhbCfX2RdYM14M8pYAfUieGhrNUxDjzjzpBL5-xUQl-exYSBqyB1IxJg9kNt5g4SAxfo4vk__xAJKgWZPMuInbgehbeKKXole8iWSB1TzlDBru9hXDuxYTjOtrtyK_WiOfTgQp61-L4vM3PTtCpywn0DHVyr-W6mF2x_El8XERRJbRGuPb-_QEcbEdpc6IwOIqMoS4iGP3o8mBmpbI3ZKFzmfdiIbZ9nVxp2-w2Cc0FGhtr2o4AXNtv10SU">
+</div>
+<div class="absolute -top-4 -right-4 bg-primary text-white p-4 font-label-caps text-xs">SEM 03</div></div>
+</div>
+</div>
+<!-- Semester 5 (Chapter 02) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="reveal-hidden relative overflow-hidden group aspect-[4/3] reveal-visible">
+<div class="terminal-overlay absolute inset-0 z-20 group-hover:opacity-0 transition-opacity"></div>
+<img alt="Dark student desk with laptop glow" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 group-hover:opacity-0 z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACM29gddTObe8pWJAQfR1l75Pqi3Y81v3jJ52R0Q9_neJPiice7IZyhJGk3yYHmYvtcixKiXm-xnVCfYncG4A9MXObQSzprwJbkGFa9KNg1yt4uLHiehv_HQddlGtSFTbPVeHTlZTDbUvCMBS7aGJXaNAcAQt1Nvaa1EqavDnZF2uC1PvaQiK9c2-Onufs9cv_ESz_KxxOq6zPdZ9m4PNaFY2KoQiOFnsocyJKpKnyb-QKrLwtRDfHIgYJeRrry1Vl35LboZ9pIFY">
+<img alt="Bright student desk with futuristic city view" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida/AP1WRLv1XRZhhT0rrxtKPwZvpc8bStQp1zBRPSKy61a3O9XJRrrlbgyDXNHT-PWbOzx7B5t4BTG5O60Fgdo0rweTt-fjc7pOTphiOvjW4xHSAPI8paZ45yPDO1I02RTLI8Pqwcsakt2nQ_5MmzdUJqodX4OhhCYpocBRJoht5ONDAnV5Uj-tyV1A5X0qA5mUEo5bEdgwho4pw8bYoqrQmvzAnc-4MOxXOpcqnMLVlFFijNZdAX_Llp0_7bufGw">
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 pointer-events-none"></div>
+</div>
+<div class="reveal-hidden space-y-6 md:pl-12 reveal-visible">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">CHAPTER: LOGIC &amp; LUBRICATION</span>
+<h3 class="font-display-lg text-4xl italic">Syntax &amp; Steam.</h3>
+<p class="font-body-lg text-secondary italic">"Some bugs needed Stack Overflow. Others needed Maggi."</p>
+<div class="font-mono text-xs text-primary/60 bg-primary/5 p-4 rounded-lg">
+                        &gt; executing nutrition_subroutine.sh...<br>
+                        &gt; steam_detected: true<br>
+                        &gt; brain_reboot: success
+                    </div>
+</div>
+</div>
+<!-- Semester 7 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1 reveal-hidden space-y-6 md:text-right md:pr-12 reveal-visible">
+<h3 class="font-display-lg text-4xl italic">The Art of Survival.</h3>
+<div class="flex md:justify-end gap-4 font-label-caps text-xs text-red-600 mb-2">
+<span class="">WALLET: ₹12.43</span>
+<span class="animate-pulse">LOW FUNDS ALERT</span>
+</div>
+<p class="font-body-lg text-secondary italic">"Financial planning failed. Maggi planning never did."</p>
+</div>
+<div class="order-1 md:order-2 reveal-hidden reveal-visible">
+<div class="p-2 border-2 border-primary/20 rotate-2 hover:rotate-0 transition-transform duration-500">
+<img class="w-full aspect-video object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvFQeBHLOXIKd5TRkA9RHQLmxqwKQo7qnRbd5T_HuvzPPf1r6tpv-T7qH182EZUV6dVzCmFCrM1FAnM2pT153zjP4pzM6To09TB4qMQ2a6LLGZJ0oaBpaUp5VJhOIwFuZUBr7P0zcAzEaSNeoZrJimaFVokCuIXcSYhcnhfBTfMlHsPlweGWpqsD6eXauKxvHILr6kqtftzL3koMaL9VQdLfay_8UpYJbQhfr8NjbKPVKpD5GNmZpW64BE">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Maggi Alchemy -->
+<section class="bg-on-surface py-32 md:py-48 overflow-hidden relative" id="alchemy">
+<div class="alchemy-circle absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-30"></div>
+<div class="alchemy-circle absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full opacity-20"></div>
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10">
+<div class="text-center mb-24 reveal-hidden reveal-visible">
+<span class="font-label-caps text-primary-container tracking-[0.5em] text-xs">FORBIDDEN RITUALS</span>
+<h2 class="font-display-lg text-surface-container-lowest text-5xl md:text-7xl mt-4 italic">Maggi Alchemy</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-12 reveal-hidden reveal-visible">
+<div class="space-y-6">
+<label class="font-label-caps text-surface-container-low text-xs block opacity-60">REAGENTS IN POSSESSION</label>
+<div class="relative group">
+<input class="w-full bg-transparent border-b-2 border-primary/30 text-surface py-6 text-2xl font-display-lg outline-none focus:border-primary-container transition-all placeholder:text-surface/10" placeholder="e.g. Leftover Peas, Red Chilli..." type="text">
+<button class="absolute right-0 bottom-4 text-primary-container hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">auto_fix_high</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="px-5 py-2 border border-primary/20 text-primary-container font-label-caps text-[10px] hover:bg-primary/10">STALE BREAD</button>
+<button class="px-5 py-2 border border-primary/20 text-primary-container font-label-caps text-[10px] hover:bg-primary/10">CHEESE SLICE</button>
+<button class="px-5 py-2 border border-primary/20 text-primary-container font-label-caps text-[10px] hover:bg-primary/10">THE WILL TO STUDY</button>
+</div>
+<button class="w-full py-6 bg-primary-container text-on-primary-container font-label-caps tracking-[0.3em] hover:scale-[1.02] transition-all shadow-xl shadow-primary-container/10">
+                    TRANSMUTE FORMULA
+                </button>
+</div>
+<!-- Fantasy Result Card -->
+<div class="reveal-hidden reveal-visible" style="transition-delay: 200ms">
+<div class="bg-[#1a1a1a] p-1 border border-primary/40 anime-card group">
+<div class="border border-primary/20 p-8 space-y-8">
+<div class="flex justify-between items-center border-b border-primary/10 pb-4">
+<span class="font-label-caps text-primary-container text-xs">TIER: SURVIVALIST</span>
+<span class="text-primary-container flex items-center gap-1 font-bold">S+ <span class="material-symbols-outlined text-sm">stars</span></span>
+</div>
+<div class="text-center py-4">
+<h3 class="font-display-lg text-3xl text-surface">The "All-Nighter" Carbonara</h3>
+<p class="text-primary/60 font-label-caps text-[10px] mt-2 italic tracking-widest">TRANSMUTATION RESULT #402</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface/5 p-4 border border-white/5">
+<span class="font-label-caps text-[9px] text-surface/40 block">POWER LEVEL</span>
+<div class="text-primary-container font-display-lg text-xl italic">9,000+</div>
+</div>
+<div class="bg-surface/5 p-4 border border-white/5">
+<span class="font-label-caps text-[9px] text-surface/40 block">BEST USED DURING</span>
+<div class="text-surface font-label-caps text-xs mt-1">EXAM WEEK</div>
+</div>
+</div>
+<div class="space-y-3">
+<span class="font-label-caps text-[9px] text-surface/40">LORE</span>
+<p class="text-surface/70 text-sm italic font-body-md leading-relaxed">
+                                "Legend says this recipe was discovered by a sleeping developer in 2012. It provides 4 hours of intense focus and 100% immunity to hunger-induced rage."
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics: Hostel Survival Index -->
+<section class="py-32 md:py-48 bg-surface-container-lowest" id="stats">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-32">
+<div class="text-center space-y-4 reveal-hidden reveal-visible">
+<span class="font-label-caps text-[10px] text-secondary tracking-[0.3em]">ENERGY DEPLOYED</span>
+<div class="font-display-lg text-6xl md:text-8xl text-primary counter italic" data-started="true" data-target="324">324</div>
+<p class="font-body-md text-secondary">Bowls Consumed</p>
+</div>
+<div class="text-center space-y-4 reveal-hidden reveal-visible" style="transition-delay: 200ms">
+<span class="font-label-caps text-[10px] text-secondary tracking-[0.3em]">RESILIENCE SCORE</span>
+<div class="font-display-lg text-6xl md:text-8xl text-primary counter italic" data-started="true" data-target="47">47</div>
+<p class="font-body-md text-secondary">All-nighters Pulled</p>
+</div>
+<div class="text-center space-y-4 reveal-hidden reveal-visible" style="transition-delay: 400ms">
+<span class="font-label-caps text-[10px] text-secondary tracking-[0.3em]">SYSTEM UPTIME</span>
+<div class="font-display-lg text-6xl md:text-8xl text-primary counter italic" data-started="true" data-target="999">999</div>
+<p class="font-body-md text-secondary">Bugs Defeated</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Persona Cards: Hall of Legends -->
+<section class="py-32 md:py-48 bg-surface overflow-hidden" id="legends">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="reveal-hidden reveal-visible">
+<span class="font-label-caps text-xs text-primary tracking-[0.4em]">CHARACTER SELECT</span>
+<h2 class="font-display-lg text-5xl md:text-6xl mt-4 italic">Hall of Legends</h2>
+</div>
+<div class="reveal-hidden reveal-visible">
+<p class="font-body-md text-secondary max-w-xs md:text-right italic">"The room changes, the warriors change, the fuel remains."</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Archetype 1 -->
+<div class="reveal-hidden reveal-visible">
+<div class="anime-card bg-surface-container-low border border-outline-variant p-4 group">
+<div class="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLs0-38TwQOEbnCnb_j5Q0sAP8_dYPVqsW7uZ8CGAR99hIarfuHcJgEBepwxZ8tUn7rze52QGiS9TJTer64LvSw8eT49eCrZuQz7-8crQZIpjet2Fkk0tHqzbbIac2bK2pagp-PeptyE7U-PDoXofsAZ_pobNjEnldTFlG8YrdKHLAW76Vv-oP-GAsaICN6Kn7RU0mRjLhPIdCl5XvsoN1efPOtgQ_ZC2rb7FirUR3udmkb6mX81vYfgUzM">
+<div class="absolute bottom-4 left-4 bg-primary text-white font-label-caps text-[10px] px-3 py-1">ULTIMATE</div>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex justify-between items-baseline">
+<h3 class="font-display-lg text-2xl italic">The Enthusiast</h3>
+<span class="font-label-caps text-[10px] text-primary">LVL 72</span>
+</div>
+<div class="space-y-2 border-t border-outline-variant pt-4">
+<div class="flex justify-between text-[10px] font-label-caps opacity-60">
+<span class="">FUEL SOURCE</span>
+<span class="">MAGGI (MASALA)</span>
+</div>
+<div class="flex justify-between text-[10px] font-label-caps opacity-60">
+<span class="">SURVIVAL RATING</span>
+<span class="text-primary font-bold">GOD-LIKE</span>
+</div>
+</div>
+</div>
 </div>
 </div>
 <!-- Archetype 2 -->
-<div class="bg-surface p-1 border-2 border-on-surface depth-card reveal-on-scroll active" style="transition-delay: 200ms">
-<div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-surface-dim">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVH2cq8-bXET9Qrk1-dW5hVXEcrTb8ldFqOnKwGkPLTpyOFjF3YpZOzwQXJLRZxzyZj7lGmF2vbk2fo1grQl_6iOcSaW2UBj-ci_Bx3tYvndq9uVKaohYi8fcQXnF_ZXVmzCsFH_XkPY82XyKCaIgxlMs5vuoHWiMwJ5LKYznWdsP0J5S2jYox0qYcWIbr-Htgw14yXf_Dlg1o8aYbrBLuPpiK8eca8T2vmG0YuK2EVsAcxAbN-izYmoaMAZNQPnk3KdFo2FgemQI">
+<div class="reveal-hidden reveal-visible" style="transition-delay: 200ms">
+<div class="anime-card bg-surface-container-low border border-outline-variant p-4 group">
+<div class="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKIefJVf4rBfLYMhDOlGoBGAy9JdEx3EenH3rbW8qmghv8kES2zbaOtjhfwmJlLQkXoioSTB43qouHaaCR_3Md6z7NGRJmfOPXq0RUqE9DzPC7-pmZ0N9596u5ISFhLfEadvSlDKT6hlCPH2EaJumb82S2bNlGgTYxCdCntk5vkQ15mw-h5nsuc4b4cuLZK8jNbzaEPJcXz7B6MMCmyX1-b_oUxp0tVyz0X43-GrUQj1J8BhnRk_dRrbvluNpMIMbdrY4ksbamlpU">
+<div class="absolute bottom-4 left-4 bg-primary text-white font-label-caps text-[10px] px-3 py-1">MYTHIC</div>
 </div>
-<div class="p-6">
-<span class="font-label-caps text-[10px] text-primary">TYPE-02</span>
-<h3 class="font-headline-sm text-headline-sm my-2">The Bug-Slayer</h3>
-<p class="text-secondary font-body-md italic">"Code, Eat, Debug, Repeat. If it doesn't compile, add more chili flakes."</p>
+<div class="mt-8 space-y-4">
+<div class="flex justify-between items-baseline">
+<h3 class="font-display-lg text-2xl italic">The Bug-Slayer</h3>
+<span class="font-label-caps text-[10px] text-primary">LVL 99</span>
+</div>
+<div class="space-y-2 border-t border-outline-variant pt-4">
+<div class="flex justify-between text-[10px] font-label-caps opacity-60">
+<span class="">SPECIAL POWER</span>
+<span class="">LOGIC LEAP</span>
+</div>
+<div class="flex justify-between text-[10px] font-label-caps opacity-60">
+<span class="">SURVIVAL RATING</span>
+<span class="text-primary font-bold">S-RANK</span>
+</div>
+</div>
+</div>
 </div>
 </div>
 <!-- Archetype 3 -->
-<div class="bg-surface p-1 border-2 border-on-surface depth-card reveal-on-scroll active" style="transition-delay: 400ms">
-<div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-surface-dim">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKKRdzLhplcqVRvE527OBi9ecsjAbu3w5XYL2AjfbfeW5yb_xbNqDXv7JvAgZu8voB5-GlYHdIphFSfJhMb9X6_reHf6d7UH7Ie4DbhPGVRJ0f7XgPVlf-DTZmpTRcTzqNaXdtKlS34YJoRBlOpHVFgUP3OpXTyF023Mz_lAMdcxm_qvvFO7wLDRts-2gFUrWLISkDgWYpajNDgyolDFjRhcF6AaxWG6_Rj6ss9eroyoikgytWYst4PqPLqunFEKKdktIPbZIUFQw">
+<div class="reveal-hidden reveal-visible" style="transition-delay: 400ms">
+<div class="anime-card bg-surface-container-low border border-outline-variant p-4 group">
+<div class="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFm-ci-TgntW6HpXfsoY4m3zZ793qlm3MEixlP9F36WLGVtEToQtaNKmATf0e0Co7FDOtZwB8t3eyJRrI-UwiGAU2ccDTXWxLEGrWBI3bfmrZsOqWVLCQ9yMty8bwSRh-h_oXHSkSfEnfvjYsbMOXmsgd6OnBLC6dW9zF58BT6oTc4QrZHuR4SLQRSAN9fmmkZyNNFU57RAYyxZqR-eF96uHDddCEVM9dsGv16_AciGfQQlLx8i7LLjA8SBKDNZ05pbLcWhSQwi7w">
+<div class="absolute bottom-4 left-4 bg-primary text-white font-label-caps text-[10px] px-3 py-1">LEGENDARY</div>
 </div>
-<div class="p-6">
-<span class="font-label-caps text-[10px] text-primary">TYPE-03</span>
-<h3 class="font-headline-sm text-headline-sm my-2">The Budget-Master</h3>
-<p class="text-secondary font-body-md italic">"Finance isn't about how much you have, it's about how much you can achieve with a single packet."</p>
+<div class="mt-8 space-y-4">
+<div class="flex justify-between items-baseline">
+<h3 class="font-display-lg text-2xl italic">The Care-Free</h3>
+<span class="font-label-caps text-[10px] text-primary">LVL 84</span>
+</div>
+<div class="space-y-2 border-t border-outline-variant pt-4">
+<div class="flex justify-between text-[10px] font-label-caps opacity-60">
+<span class="">MAIN ASSET</span>
+<span class="">Fresh Mind</span>
+</div>
+<div class="flex justify-between text-[10px] font-label-caps opacity-60">
+<span class="">SURVIVAL RATING</span>
+<span class="text-primary font-bold">UNSTOPPABLE</span>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Finale -->
-<section class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-<canvas class="absolute inset-0 pointer-events-none opacity-20 z-0" id="finale-particles" width="300" height="150"></canvas>
-<div class="absolute inset-0 bg-inverse-surface z-0 opacity-10"></div>
-<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-<div class="relative z-10 max-w-3xl">
-<span class="font-label-caps text-label-caps text-primary mb-8 block tracking-[0.5em] reveal-on-scroll active">THE FINAL CHAPTER</span>
-<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-12 italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">J</span><span style="transition-delay: 30ms;" class="">o</span><span style="transition-delay: 60ms;" class="">i</span><span style="transition-delay: 90ms;" class="">n</span><span style="transition-delay: 120ms;">&nbsp;</span><span style="transition-delay: 150ms;" class="">t</span><span style="transition-delay: 180ms;" class="">h</span><span style="transition-delay: 210ms;" class="">e</span><span style="transition-delay: 240ms;">&nbsp;</span><span style="transition-delay: 270ms;" class="">L</span><span style="transition-delay: 300ms;" class="">e</span><span style="transition-delay: 330ms;" class="">g</span><span style="transition-delay: 360ms;" class="">e</span><span style="transition-delay: 390ms;" class="">n</span><span style="transition-delay: 420ms;" class="">d</span><span style="transition-delay: 450ms;" class="">.</span></h2>
-<div class="flex flex-col md:flex-row gap-6 justify-center reveal-on-scroll active">
-<button class="slide-fill-btn glow-btn bg-primary-container text-on-primary-container px-12 py-5 font-label-caps text-label-caps text-lg shadow-xl shadow-primary-container/20">
-                ORDER YOUR PACK
+<!-- Emotional Finale -->
+<section class="relative h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-[#0a0a0a]">
+<div class="absolute inset-0 z-0 bg-gradient-to-t from-orange-900/20 to-transparent"></div>
+<div class="relative z-10 max-w-4xl space-y-12">
+<span class="font-label-caps text-primary-container tracking-[0.6em] text-xs reveal-hidden reveal-visible">THE FINAL CHAPTER</span>
+<div class="space-y-8 reveal-hidden reveal-visible">
+<p class="font-display-lg text-2xl md:text-4xl text-surface/80 italic leading-relaxed">
+                "One day, the assignments ended.<br>
+                The hostel room became empty.<br>
+                The Maggi bowl disappeared.<br>
+                But the memories stayed."
+            </p>
+</div>
+<div class="reveal-hidden reveal-visible" style="transition-delay: 400ms">
+<button class="px-16 py-6 bg-primary-container text-on-primary-container font-label-caps tracking-[0.3em] text-xs hover:scale-105 transition-all shadow-2xl">
+                RELIVE THE JOURNEY
             </button>
-<button class="px-12 py-5 border-2 border-on-surface font-label-caps text-label-caps text-lg hover:bg-on-surface hover:text-surface transition-all">
-                READ THE ARCHIVE
-            </button>
 </div>
 </div>
-<!-- Floating Particles/Steam Micro-animations -->
-<div class="absolute top-1/4 left-1/4 steam-anim opacity-20">
-<span class="material-symbols-outlined text-primary text-[48px]">cloud</span>
-</div>
-<div class="absolute bottom-1/4 right-1/4 steam-anim opacity-20" style="animation-delay: 1.5s">
-<span class="material-symbols-outlined text-primary text-[64px]">cloud</span>
-</div>
+<!-- Steam particles container -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none" id="steam-container"><span class="steam-particle" style="width: 23.7779px; height: 23.7779px; left: 88.5143%; bottom: -50px; animation-delay: 1.83263s;"></span><span class="steam-particle" style="width: 31.9328px; height: 31.9328px; left: 70.3761%; bottom: -50px; animation-delay: 0.688301s;"></span><span class="steam-particle" style="width: 51.1771px; height: 51.1771px; left: 76.8042%; bottom: -50px; animation-delay: 0.913511s;"></span><span class="steam-particle" style="width: 43.4687px; height: 43.4687px; left: 49.7843%; bottom: -50px; animation-delay: 1.26388s;"></span><span class="steam-particle" style="width: 56.5073px; height: 56.5073px; left: 63.3563%; bottom: -50px; animation-delay: 1.81715s;"></span><span class="steam-particle" style="width: 44.2692px; height: 44.2692px; left: 5.76156%; bottom: -50px; animation-delay: 1.68421s;"></span><span class="steam-particle" style="width: 40.1966px; height: 40.1966px; left: 5.87913%; bottom: -50px; animation-delay: 1.50555s;"></span><span class="steam-particle" style="width: 44.9685px; height: 44.9685px; left: 8.3363%; bottom: -50px; animation-delay: 0.317032s;"></span><span class="steam-particle" style="width: 36.6365px; height: 36.6365px; left: 65.9102%; bottom: -50px; animation-delay: 1.76258s;"></span><span class="steam-particle" style="width: 51.1216px; height: 51.1216px; left: 66.9849%; bottom: -50px; animation-delay: 0.503299s;"></span><span class="steam-particle" style="width: 20.1182px; height: 20.1182px; left: 66.3274%; bottom: -50px; animation-delay: 0.363512s;"></span><span class="steam-particle" style="width: 26.0191px; height: 26.0191px; left: 25.2338%; bottom: -50px; animation-delay: 0.620203s;"></span><span class="steam-particle" style="width: 49.0384px; height: 49.0384px; left: 50.295%; bottom: -50px; animation-delay: 0.256358s;"></span><span class="steam-particle" style="width: 58.7283px; height: 58.7283px; left: 14.9592%; bottom: -50px; animation-delay: 1.30416s;"></span><span class="steam-particle" style="width: 28.8034px; height: 28.8034px; left: 54.3385%; bottom: -50px; animation-delay: 1.71632s;"></span><span class="steam-particle" style="width: 37.3805px; height: 37.3805px; left: 51.1449%; bottom: -50px; animation-delay: 0.36924s;"></span><span class="steam-particle" style="width: 22.7517px; height: 22.7517px; left: 62.9547%; bottom: -50px; animation-delay: 1.72376s;"></span><span class="steam-particle" style="width: 51.2972px; height: 51.2972px; left: 24.2381%; bottom: -50px; animation-delay: 0.163576s;"></span><span class="steam-particle" style="width: 30.1325px; height: 30.1325px; left: 55.1227%; bottom: -50px; animation-delay: 1.07621s;"></span><span class="steam-particle" style="width: 37.1108px; height: 37.1108px; left: 64.0131%; bottom: -50px; animation-delay: 0.188028s;"></span><span class="steam-particle" style="width: 24.0488px; height: 24.0488px; left: 36.9173%; bottom: -50px; animation-delay: 1.91223s;"></span><span class="steam-particle" style="width: 49.6527px; height: 49.6527px; left: 18.4916%; bottom: -50px; animation-delay: 1.3472s;"></span><span class="steam-particle" style="width: 26.4363px; height: 26.4363px; left: 5.35243%; bottom: -50px; animation-delay: 0.246551s;"></span><span class="steam-particle" style="width: 38.3928px; height: 38.3928px; left: 9.03939%; bottom: -50px; animation-delay: 1.00214s;"></span><span class="steam-particle" style="width: 32.5766px; height: 32.5766px; left: 51.503%; bottom: -50px; animation-delay: 1.19864s;"></span><span class="steam-particle" style="width: 44.5672px; height: 44.5672px; left: 58.7996%; bottom: -50px; animation-delay: 0.942271s;"></span><span class="steam-particle" style="width: 47.6075px; height: 47.6075px; left: 81.8668%; bottom: -50px; animation-delay: 0.852114s;"></span><span class="steam-particle" style="width: 40.5462px; height: 40.5462px; left: 8.06426%; bottom: -50px; animation-delay: 0.0197111s;"></span><span class="steam-particle" style="width: 58.4473px; height: 58.4473px; left: 92.7052%; bottom: -50px; animation-delay: 0.911317s;"></span><span class="steam-particle" style="width: 24.9703px; height: 24.9703px; left: 12.3346%; bottom: -50px; animation-delay: 0.100894s;"></span><span class="steam-particle" style="width: 43.5944px; height: 43.5944px; left: 47.4912%; bottom: -50px; animation-delay: 0.640037s;"></span><span class="steam-particle" style="width: 47.0937px; height: 47.0937px; left: 65.0689%; bottom: -50px; animation-delay: 1.69219s;"></span><span class="steam-particle" style="width: 53.669px; height: 53.669px; left: 54.6056%; bottom: -50px; animation-delay: 0.560103s;"></span><span class="steam-particle" style="width: 31.7707px; height: 31.7707px; left: 46.5564%; bottom: -50px; animation-delay: 1.89976s;"></span><span class="steam-particle" style="width: 34.1765px; height: 34.1765px; left: 29.4661%; bottom: -50px; animation-delay: 1.0835s;"></span><span class="steam-particle" style="width: 56.672px; height: 56.672px; left: 83.0303%; bottom: -50px; animation-delay: 1.63575s;"></span><span class="steam-particle" style="width: 55.558px; height: 55.558px; left: 99.3915%; bottom: -50px; animation-delay: 1.65609s;"></span><span class="steam-particle" style="width: 39.154px; height: 39.154px; left: 81.3276%; bottom: -50px; animation-delay: 1.90754s;"></span><span class="steam-particle" style="width: 24.7678px; height: 24.7678px; left: 79.1014%; bottom: -50px; animation-delay: 0.541042s;"></span><span class="steam-particle" style="width: 48.6615px; height: 48.6615px; left: 32.1542%; bottom: -50px; animation-delay: 1.41332s;"></span><span class="steam-particle" style="width: 51.7527px; height: 51.7527px; left: 75.7181%; bottom: -50px; animation-delay: 1.10963s;"></span><span class="steam-particle" style="width: 49.7388px; height: 49.7388px; left: 56.8972%; bottom: -50px; animation-delay: 0.241022s;"></span><span class="steam-particle" style="width: 31.1423px; height: 31.1423px; left: 67.7088%; bottom: -50px; animation-delay: 1.40397s;"></span><span class="steam-particle" style="width: 54.5469px; height: 54.5469px; left: 40.5355%; bottom: -50px; animation-delay: 0.55254s;"></span><span class="steam-particle" style="width: 37.3387px; height: 37.3387px; left: 72.8783%; bottom: -50px; animation-delay: 1.68646s;"></span><span class="steam-particle" style="width: 45.9206px; height: 45.9206px; left: 47.6767%; bottom: -50px; animation-delay: 1.58611s;"></span><span class="steam-particle" style="width: 56.1274px; height: 56.1274px; left: 67.3944%; bottom: -50px; animation-delay: 0.815651s;"></span><span class="steam-particle" style="width: 59.522px; height: 59.522px; left: 79.8066%; bottom: -50px; animation-delay: 0.044087s;"></span><span class="steam-particle" style="width: 53.0188px; height: 53.0188px; left: 43.9342%; bottom: -50px; animation-delay: 0.740182s;"></span><span class="steam-particle" style="width: 46.2529px; height: 46.2529px; left: 20.993%; bottom: -50px; animation-delay: 0.347103s;"></span><span class="steam-particle" style="width: 30.4808px; height: 30.4808px; left: 72.8372%; bottom: -50px; animation-delay: 1.49371s;"></span><span class="steam-particle" style="width: 39.4589px; height: 39.4589px; left: 79.7308%; bottom: -50px; animation-delay: 0.790505s;"></span><span class="steam-particle" style="width: 49.9452px; height: 49.9452px; left: 59.3439%; bottom: -50px; animation-delay: 1.36765s;"></span><span class="steam-particle" style="width: 47.1872px; height: 47.1872px; left: 58.7198%; bottom: -50px; animation-delay: 0.649387s;"></span><span class="steam-particle" style="width: 53.3531px; height: 53.3531px; left: 75.6613%; bottom: -50px; animation-delay: 0.209175s;"></span></div>
 </section>
 <!-- Footer -->
-<footer class="bg-inverse-surface dark:bg-surface-container-lowest w-full py-16 border-t border-primary/20">
-<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
-<div class="font-display-lg text-headline-md text-primary-fixed">MAGGI LEGEND</div>
-<div class="flex flex-wrap justify-center gap-8 font-label-caps text-label-caps">
-<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Privacy</a>
-<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Alchemy Terms</a>
-<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Contact</a>
-<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Archive</a>
+<footer class="bg-on-surface py-20 border-t border-white/5">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-12">
+<div class="font-display-lg text-3xl text-primary-container italic">MAGGI LEGEND</div>
+<div class="flex gap-12 font-label-caps text-[10px] tracking-widest text-surface/40">
+<a class="hover:text-primary-container transition-colors" href="#">ARCHIVE</a>
+<a class="hover:text-primary-container transition-colors" href="#">ALCHEMY LAB</a>
+<a class="hover:text-primary-container transition-colors" href="#">LEGEND TERMS</a>
 </div>
-<div class="font-label-caps text-[10px] text-secondary-fixed-dim opacity-60">
-            © 2024 MAGGI LEGEND. THE ART OF SURVIVAL.
+<div class="font-label-caps text-[10px] text-surface/20">
+            © 2026 MAGGI LEGEND. THE ART OF SURVIVAL.
         </div>
 </div>
 </footer>
-<!-- Companion Widget (FAB) -->
-<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container text-on-primary-container rounded-full shadow-2xl z-[60] flex items-center justify-center group animate-pulse hover:animate-none hover:scale-110 transition-all border-2 border-on-primary-container/20">
-<span class="material-symbols-outlined text-[32px] group-hover:rotate-12 transition-transform">restaurant</span>
-<div class="absolute -top-12 right-0 bg-on-surface text-surface text-[10px] font-label-caps py-1 px-3 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-        SUMMON COMPANION
-    </div>
-</button>
 <script>
-    // --- Reveal System (IntersectionObserver) ---
-    const revealObserver = new IntersectionObserver((entries) => {
+    // Intersection Observer for reveals
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                entry.target.classList.add('reveal-visible');
+                
+                // Trigger typewriter if present
+                const typewriter = entry.target.querySelector('.typewriter');
+                if (typewriter) startTypewriter(typewriter);
+
+                // Trigger counters
+                const counter = entry.target.querySelector('.counter');
+                if (counter) startCounter(counter);
             }
         });
-    }, { threshold: 0.15 });
+    }, observerOptions);
 
-    document.querySelectorAll('.reveal-on-scroll, .reveal-text').forEach(el => {
-        revealObserver.observe(el);
-    });
+    document.querySelectorAll('.reveal-hidden').forEach(el => observer.observe(el));
 
-    // --- Staggered Typography Reveal ---
-    document.querySelectorAll('.reveal-text.js-stagger').forEach(heading => {
-        const text = heading.innerText;
-        heading.innerHTML = '';
-        text.split('').forEach((char, i) => {
-            const span = document.createElement('span');
-            span.innerText = char === ' ' ? '\u00A0' : char;
-            span.style.transitionDelay = `${i * 30}ms`;
-            heading.appendChild(span);
-        });
-    });
-
-    // --- Mouse Tracking Glow Effect ---
-    document.querySelectorAll('.glow-btn').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / btn.clientWidth) * 100;
-            const y = ((e.clientY - rect.top) / btn.clientHeight) * 100;
-            btn.style.setProperty('--x', x + '%');
-            btn.style.setProperty('--y', y + '%');
-        });
-    });
-
-    // --- Particle Background (Canvas) ---
-    function initParticles(canvasId, particleColor = '#725c00') {
-        const canvas = document.getElementById(canvasId);
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        const count = 50;
-
-        function resize() {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Particle {
-            constructor() {
-                this.reset();
-            }
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = -Math.random() * 1 - 0.2;
-                this.size = Math.random() * 2 + 1;
-                this.alpha = Math.random() * 0.5 + 0.1;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.y < 0) this.reset();
-            }
-            draw() {
-                ctx.fillStyle = particleColor;
-                ctx.globalAlpha = this.alpha;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+    // Typewriter effect
+    function startTypewriter(el) {
+        if (el.dataset.started) return;
+        el.dataset.started = true;
+        const text = el.dataset.text;
+        let i = 0;
+        el.classList.add('typewriter');
+        function type() {
+            if (i < text.length) {
+                el.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, 30);
             }
         }
-
-        for (let i = 0; i < count; i++) particles.push(new Particle());
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
+        type();
     }
-    
-    initParticles('hero-particles', '#ffd100');
-    initParticles('finale-particles', '#725c00');
 
-    // --- Steam Micro-interactions ---
-    document.querySelectorAll('.js-steam-container').forEach(container => {
-        setInterval(() => {
-            const particle = document.createElement('div');
-            particle.className = 'steam-particle';
-            particle.style.left = Math.random() * 80 + 10 + '%';
-            particle.style.bottom = '20%';
-            particle.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            container.appendChild(particle);
-            setTimeout(() => particle.remove(), 4000);
-        }, 800);
-    });
-
-    // --- Parallax Effect for Manga Panels ---
-    window.addEventListener('scroll', () => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        
-        const scrolled = window.pageYOffset;
-        document.querySelectorAll('.js-parallax').forEach(img => {
-            const speed = 0.08;
-            const rect = img.parentElement.getBoundingClientRect();
-            const offset = rect.top + scrolled;
-            const yPos = (scrolled - offset) * speed;
-            img.style.transform = `scale(1.15) translateY(${yPos}px)`;
-        });
-    });
-
-    // --- Simple Counter Animation ---
-    const countObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.dataset.target);
-                let current = 0;
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        entry.target.innerText = target + (entry.target.innerText.includes('M') ? 'M+' : entry.target.innerText.includes('K') ? 'K+' : 'S');
-                        clearInterval(timer);
-                    } else {
-                        entry.target.innerText = Math.floor(current) + (entry.target.innerText.includes('M') ? 'M+' : entry.target.innerText.includes('K') ? 'K+' : 'S');
-                    }
-                }, 16);
-                countObserver.unobserve(entry.target);
+    // Counter animation
+    function startCounter(el) {
+        if (el.dataset.started) return;
+        el.dataset.started = true;
+        const target = +el.dataset.target;
+        let count = 0;
+        const speed = target / 50;
+        function updateCount() {
+            if (count < target) {
+                count += speed;
+                el.innerText = Math.floor(count);
+                setTimeout(updateCount, 20);
+            } else {
+                el.innerText = target;
             }
-        });
-    }, { threshold: 0.5 });
+        }
+        updateCount();
+    }
 
-    document.querySelectorAll('.js-counter').forEach(counter => countObserver.observe(counter));
-
+    // Steam particles
+    function createSteam() {
+        const container = document.getElementById('steam-container');
+        if (!container) return;
+        const particle = document.createElement('span');
+        particle.className = 'steam-particle';
+        const size = Math.random() * 40 + 20 + 'px';
+        particle.style.width = size;
+        particle.style.height = size;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.bottom = '-50px';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(particle);
+        setTimeout(() => particle.remove(), 4000);
+    }
+    setInterval(createSteam, 300);
 </script>
+
+
+
+
 
 
 </body></html>
