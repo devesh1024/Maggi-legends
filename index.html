@@ -1,0 +1,639 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MAGGI LEGEND | The Art of Survival</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#564500",
+                    "on-error-container": "#93000a",
+                    "primary": "#725c00",
+                    "on-tertiary-fixed-variant": "#004f56",
+                    "tertiary-fixed-dim": "#00dbed",
+                    "on-secondary-fixed-variant": "#474744",
+                    "secondary-fixed-dim": "#c8c6c3",
+                    "primary-fixed-dim": "#edc200",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-variant": "#e5e2e1",
+                    "tertiary-fixed": "#8df2ff",
+                    "surface-container": "#f0eded",
+                    "outline": "#7f765f",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f3f0ef",
+                    "primary-fixed": "#ffe07f",
+                    "background": "#fcf9f8",
+                    "primary-container": "#ffd100",
+                    "surface": "#fcf9f8",
+                    "surface-container-low": "#f6f3f2",
+                    "outline-variant": "#d1c6ab",
+                    "secondary": "#5e5e5c",
+                    "surface-tint": "#725c00",
+                    "surface-dim": "#dcd9d9",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fcf9f8",
+                    "on-surface-variant": "#4d4632",
+                    "tertiary": "#006972",
+                    "secondary-fixed": "#e4e2de",
+                    "on-tertiary-container": "#006670",
+                    "on-tertiary-fixed": "#001f23",
+                    "on-secondary-container": "#636360",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#231b00",
+                    "inverse-surface": "#313030",
+                    "on-background": "#1c1b1b",
+                    "on-surface": "#1c1b1b",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#e1dfdc",
+                    "on-secondary-fixed": "#1b1c1a",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#6f5a00",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#0bebff",
+                    "inverse-primary": "#edc200",
+                    "surface-container-high": "#eae7e7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "panel-gap": "32px",
+                    "margin-mobile": "20px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["JetBrains Mono"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["42px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .manga-panel {
+            clip-path: polygon(0 0, 100% 2%, 98% 100%, 2% 98%);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .manga-panel:hover {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        .slide-fill-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .slide-fill-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #1c1b1b;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+        .slide-fill-btn:hover::before {
+            left: 0;
+        }
+        .slide-fill-btn:hover {
+            color: #ffd100;
+        }
+        .steam-anim {
+            animation: steam 3s infinite ease-in-out;
+            opacity: 0.6;
+        }
+        @keyframes steam {
+            0%, 100% { transform: translateY(0) scaleX(1); opacity: 0.4; }
+            50% { transform: translateY(-15px) scaleX(1.2); opacity: 0.8; }
+        }
+        
+        /* Particle & Steam Micro-animations */
+        .steam-particle {
+            position: absolute;
+            width: 2px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            filter: blur(1px);
+            animation: rise 4s infinite linear;
+        }
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            20% { opacity: 0.5; }
+            100% { transform: translateY(-100px) scale(2); opacity: 0; }
+        }
+
+        /* Mouse Tracking Glow */
+        .glow-btn {
+            position: relative;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.4) 0%, transparent 60%);
+        }
+
+        /* Staggered Text Reveal */
+        .reveal-text span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-text.active span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Shimmer Effect */
+        .shimmer-gold {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,209,0,0.1) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Depth Hover */
+        .depth-card {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .depth-card:hover {
+            transform: scale(1.02) translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Dust Particles */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll, .reveal-text span, .depth-card, .steam-anim, .manga-panel {
+                transition: none !important;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/40 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-margin-desktop py-4">
+<div class="font-display-lg-mobile text-headline-sm text-primary tracking-tighter">MAGGI LEGEND</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#story">Story</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#alchemy">AI Lab</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#statistics">Statistics</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#personas">Persona</a>
+</div>
+<button class="slide-fill-btn bg-primary-container text-on-primary-container px-6 py-2 font-label-caps text-label-caps transition-all active:scale-95">
+            Shop Legend
+        </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+<canvas class="absolute inset-0 pointer-events-none opacity-40 z-10" id="hero-particles" width="300" height="150"></canvas>
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-surface/20 via-transparent to-surface z-10"></div>
+<img alt="Hero Cinematic" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQazWDZyq6xPJLzrYt9RJbYZ2CL-KJ5YNP6Cez0UqlG1bPeayAGGT0R0fqJR5hU_IbK2U705lvmY1Xii8lDpi5bxI9MAy5s6WAyEXnnDAn6nrYtaVwjRMYyWXrtTEuO3DpYY8jd2y_NpxVn3HriMB4x9qP6Oa5fDCQzW_JmfRtwArV90vSMHtSNhwzgXxMLr4S7_sn6cddWsBMP9kDdHn2OICHyIgA2p4F-eFUCmzrIo9gw9QSNU0fCgLJI16HVp70egdeUTYj9Fg">
+</div>
+<div class="relative z-20 text-center px-6 max-w-4xl">
+<div class="inline-block px-3 py-1 mb-6 border border-primary/40 bg-surface/60 backdrop-blur-md reveal-on-scroll active">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.3em]">THE COMPANION CHRONICLES</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">E</span><span style="transition-delay: 30ms;" class="">V</span><span style="transition-delay: 60ms;" class="">E</span><span style="transition-delay: 90ms;" class="">R</span><span style="transition-delay: 120ms;" class="">Y</span><span style="transition-delay: 150ms;">&nbsp;</span><span style="transition-delay: 180ms;" class="">L</span><span style="transition-delay: 210ms;" class="">E</span><span style="transition-delay: 240ms;" class="">G</span><span style="transition-delay: 270ms;" class="">E</span><span style="transition-delay: 300ms;" class="">N</span><span style="transition-delay: 330ms;" class="">D</span><span style="transition-delay: 360ms;">&nbsp;</span><span style="transition-delay: 390ms;" class="">H</span><span style="transition-delay: 420ms;" class="">A</span><span style="transition-delay: 450ms;" class="">S</span><span style="transition-delay: 480ms;">&nbsp;</span><span style="transition-delay: 510ms;" class="">A</span><span style="transition-delay: 540ms;">&nbsp;</span><span style="transition-delay: 570ms;" class="">C</span><span style="transition-delay: 600ms;" class="">O</span><span style="transition-delay: 630ms;" class="">M</span><span style="transition-delay: 660ms;" class="">P</span><span style="transition-delay: 690ms;" class="">A</span><span style="transition-delay: 720ms;" class="">N</span><span style="transition-delay: 750ms;" class="">I</span><span style="transition-delay: 780ms;" class="">O</span><span style="transition-delay: 810ms;" class="">N</span><span style="transition-delay: 840ms;" class="">.</span></h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto mb-12 reveal-on-scroll active" style="transition-delay: 200ms">
+            The silent witness to every 4 AM epiphany and every deadline survived. 
+            A warm bowl, a clear mind, a path to greatness.
+        </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center items-center reveal-on-scroll active" style="transition-delay: 400ms">
+<a class="slide-fill-btn glow-btn bg-primary-container text-on-primary-container px-10 py-4 font-label-caps text-label-caps w-full md:w-auto text-center cursor-pointer" href="#story">
+                Begin the Journey
+            </a>
+<div class="flex items-center gap-2 font-label-caps text-label-caps text-secondary cursor-pointer hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                WATCH THE PRELUDE
+            </div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40 z-20">
+<span class="material-symbols-outlined text-display-lg-mobile">expand_more</span>
+</div>
+</header>
+<!-- The Story (Scroll Experience) -->
+<section class="py-24 md:py-48 px-6 md:px-margin-desktop max-w-container-max mx-auto space-y-32 md:space-y-64" id="story">
+<!-- Panel 1 -->
+<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-12 group reveal-on-scroll active">
+<div class="md:col-span-7 manga-panel overflow-hidden border-2 border-on-surface bg-surface-container-low shadow-2xl relative">
+<img alt="Midnight Oil" class="w-full aspect-video object-cover transition-transform duration-700 js-parallax" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQazWDZyq6xPJLzrYt9RJbYZ2CL-KJ5YNP6Cez0UqlG1bPeayAGGT0R0fqJR5hU_IbK2U705lvmY1Xii8lDpi5bxI9MAy5s6WAyEXnnDAn6nrYtaVwjRMYyWXrtTEuO3DpYY8jd2y_NpxVn3HriMB4x9qP6Oa5fDCQzW_JmfRtwArV90vSMHtSNhwzgXxMLr4S7_sn6cddWsBMP9kDdHn2OICHyIgA2p4F-eFUCmzrIo9gw9QSNU0fCgLJI16HVp70egdeUTYj9Fg">
+<div class="absolute top-4 right-4 bg-primary px-3 py-1 text-on-primary font-label-caps text-[10px] z-10">PANEL NO. 01</div>
+<!-- Steam effect overlay -->
+<div class="absolute inset-0 pointer-events-none js-steam-container"><div class="steam-particle" style="left: 51.1141%; bottom: 20%; animation-duration: 4.81067s;"></div><div class="steam-particle" style="left: 68.5654%; bottom: 20%; animation-duration: 3.57836s;"></div><div class="steam-particle" style="left: 12.0949%; bottom: 20%; animation-duration: 3.57297s;"></div><div class="steam-particle" style="left: 88.8834%; bottom: 20%; animation-duration: 4.51163s;"></div><div class="steam-particle" style="left: 22.9075%; bottom: 20%; animation-duration: 3.12292s;"></div></div>
+</div>
+<div class="md:col-span-5 space-y-6">
+<span class="font-label-caps text-label-caps text-primary">CHAPTER 01</span>
+<h2 class="font-headline-md text-headline-md italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">T</span><span style="transition-delay: 30ms;" class="">h</span><span style="transition-delay: 60ms;" class="">e</span><span style="transition-delay: 90ms;">&nbsp;</span><span style="transition-delay: 120ms;" class="">M</span><span style="transition-delay: 150ms;" class="">i</span><span style="transition-delay: 180ms;" class="">d</span><span style="transition-delay: 210ms;" class="">n</span><span style="transition-delay: 240ms;" class="">i</span><span style="transition-delay: 270ms;" class="">g</span><span style="transition-delay: 300ms;" class="">h</span><span style="transition-delay: 330ms;" class="">t</span><span style="transition-delay: 360ms;">&nbsp;</span><span style="transition-delay: 390ms;" class="">O</span><span style="transition-delay: 420ms;" class="">i</span><span style="transition-delay: 450ms;" class="">l</span></h2>
+<div class="w-12 h-1 bg-primary-container"></div>
+<p class="font-body-lg text-body-lg text-secondary">
+                When the rest of the world sleeps, the Legend is forged. Surrounded by the glow of three monitors and the quiet hum of a laptop fan, the only warmth comes from the steam of the companion.
+            </p>
+<div class="flex items-center gap-4 text-primary opacity-60">
+<span class="material-symbols-outlined steam-anim">waves</span>
+<span class="font-label-caps text-[10px] tracking-widest">SENSORY DATA: MASALA AROMA DETECTED</span>
+</div>
+</div>
+</div>
+<!-- Panel 2 -->
+<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-12 group reveal-on-scroll active">
+<div class="md:col-span-5 space-y-6 md:text-right flex flex-col md:items-end">
+<span class="font-label-caps text-label-caps text-primary">CHAPTER 02</span>
+<h2 class="font-headline-md text-headline-md italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">S</span><span style="transition-delay: 30ms;" class="">y</span><span style="transition-delay: 60ms;" class="">n</span><span style="transition-delay: 90ms;" class="">t</span><span style="transition-delay: 120ms;" class="">a</span><span style="transition-delay: 150ms;" class="">x</span><span style="transition-delay: 180ms;">&nbsp;</span><span style="transition-delay: 210ms;" class="">&amp;</span><span style="transition-delay: 240ms;">&nbsp;</span><span style="transition-delay: 270ms;" class="">S</span><span style="transition-delay: 300ms;" class="">t</span><span style="transition-delay: 330ms;" class="">e</span><span style="transition-delay: 360ms;" class="">a</span><span style="transition-delay: 390ms;" class="">m</span></h2>
+<div class="w-12 h-1 bg-primary-container"></div>
+<p class="font-body-lg text-body-lg text-secondary">
+                Bug at line 402. Brain stalling. The logic starts to blur into the blue light of the screen. Two minutes. That's all the reboot takes. For both the code and the coder.
+            </p>
+</div>
+<div class="md:col-span-7 manga-panel overflow-hidden border-2 border-on-surface bg-surface-container-low shadow-2xl relative order-first md:order-last">
+<img alt="Syntax and Steam" class="w-full aspect-video object-cover transition-transform duration-700 js-parallax" src="https://lh3.googleusercontent.com/aida/AP1WRLv1XRZhhT0rrxtKPwZvpc8bStQp1zBRPSKy61a3O9XJRrrlbgyDXNHT-PWbOzx7B5t4BTG5O60Fgdo0rweTt-fjc7pOTphiOvjW4xHSAPI8paZ45yPDO1I02RTLI8Pqwcsakt2nQ_5MmzdUJqodX4OhhCYpocBRJoht5ONDAnV5Uj-tyV1A5X0qA5mUEo5bEdgwho4pw8bYoqrQmvzAnc-4MOxXOpcqnMLVlFFijNZdAX_Llp0_7bufGw">
+<div class="absolute top-4 left-4 bg-primary px-3 py-1 text-on-primary font-label-caps text-[10px] z-10">PANEL NO. 02</div>
+<div class="absolute inset-0 pointer-events-none js-steam-container"><div class="steam-particle" style="left: 42.0427%; bottom: 20%; animation-duration: 4.81962s;"></div><div class="steam-particle" style="left: 56.0714%; bottom: 20%; animation-duration: 3.83892s;"></div><div class="steam-particle" style="left: 84.2233%; bottom: 20%; animation-duration: 3.99827s;"></div><div class="steam-particle" style="left: 68.0388%; bottom: 20%; animation-duration: 4.87703s;"></div><div class="steam-particle" style="left: 84.8477%; bottom: 20%; animation-duration: 4.62069s;"></div></div>
+</div>
+</div>
+<!-- Panel 3 -->
+<div class="grid grid-cols-1 md:grid-cols-12 items-center gap-12 group reveal-on-scroll active">
+<div class="md:col-span-7 manga-panel overflow-hidden border-2 border-on-surface bg-surface-container-low shadow-2xl relative">
+<img alt="Art of Survival" class="w-full aspect-video object-cover transition-transform duration-700 js-parallax" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4MLl-99ZEvBwNHUsZQK3rcXhS375tB24DTWqr40kb5z-wQavOj81SyOpKI4ug_g7FfaaKbHjPyU6O3wqFeNQdoq7Ox219HJ6-d7R3FbMzDYttQYSmoSf3MO2x6hoHquFyf2jeU-qlT_TV1Ya_CB8rtOgwzj-WtvYjyqzRlHm0xRrTls_W7iVaKpkuxI8tpBC6-PthEmgDDqYzmUjrm6dqowp7WXbmT-R4P-75WrwaLtbtUSfy6qytYNw-uGchdAF-qVTJgY9Ys6A">
+<div class="absolute top-4 right-4 bg-primary px-3 py-1 text-on-primary font-label-caps text-[10px] z-10">PANEL NO. 03</div>
+<div class="absolute inset-0 pointer-events-none js-steam-container"><div class="steam-particle" style="left: 16.9692%; bottom: 20%; animation-duration: 4.56869s;"></div><div class="steam-particle" style="left: 75.4285%; bottom: 20%; animation-duration: 3.16362s;"></div><div class="steam-particle" style="left: 37.8034%; bottom: 20%; animation-duration: 3.37091s;"></div><div class="steam-particle" style="left: 88.225%; bottom: 20%; animation-duration: 4.45816s;"></div><div class="steam-particle" style="left: 41.5767%; bottom: 20%; animation-duration: 3.13823s;"></div></div>
+</div>
+<div class="md:col-span-5 space-y-6">
+<span class="font-label-caps text-label-caps text-primary">CHAPTER 03</span>
+<h2 class="font-headline-md text-headline-md italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">T</span><span style="transition-delay: 30ms;" class="">h</span><span style="transition-delay: 60ms;" class="">e</span><span style="transition-delay: 90ms;">&nbsp;</span><span style="transition-delay: 120ms;" class="">A</span><span style="transition-delay: 150ms;" class="">r</span><span style="transition-delay: 180ms;" class="">t</span><span style="transition-delay: 210ms;">&nbsp;</span><span style="transition-delay: 240ms;" class="">o</span><span style="transition-delay: 270ms;" class="">f</span><span style="transition-delay: 300ms;">&nbsp;</span><span style="transition-delay: 330ms;" class="">S</span><span style="transition-delay: 360ms;" class="">u</span><span style="transition-delay: 390ms;" class="">r</span><span style="transition-delay: 420ms;" class="">v</span><span style="transition-delay: 450ms;" class="">i</span><span style="transition-delay: 480ms;" class="">v</span><span style="transition-delay: 510ms;" class="">a</span><span style="transition-delay: 540ms;" class="">l</span></h2>
+<div class="w-12 h-1 bg-primary-container"></div>
+<p class="font-body-lg text-body-lg text-secondary">
+                Day 28. The bank account shows double digits. The ambition shows seven. A gold-trimmed fork makes a humble meal a banquet for the resilient. Survival is a luxury.
+            </p>
+</div>
+</div>
+</section>
+<!-- Maggi Alchemy (Interactive Section) -->
+<section class="bg-inverse-surface py-24 md:py-32 overflow-hidden relative" id="alchemy">
+<div class="absolute inset-0 shimmer-gold opacity-10 pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end gap-12 mb-20 reveal-on-scroll active">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps text-primary-fixed mb-4 block">LABORATORY PHASE: BETA 0.4</span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-surface-container-lowest leading-tight reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">M</span><span style="transition-delay: 30ms;" class="">A</span><span style="transition-delay: 60ms;" class="">G</span><span style="transition-delay: 90ms;" class="">G</span><span style="transition-delay: 120ms;" class="">I</span><span style="transition-delay: 150ms;">&nbsp;</span><span style="transition-delay: 180ms;" class="">A</span><span style="transition-delay: 210ms;" class="">L</span><span style="transition-delay: 240ms;" class="">C</span><span style="transition-delay: 270ms;" class="">H</span><span style="transition-delay: 300ms;" class="">E</span><span style="transition-delay: 330ms;" class="">M</span><span style="transition-delay: 360ms;" class="">Y</span></h2>
+<p class="text-secondary-fixed-dim font-body-lg mt-6">
+                    The ultimate student algorithm. Input your current resources, and we'll engineer the perfect survival meal.
+                </p>
+</div>
+<div class="hidden md:block">
+<span class="material-symbols-outlined text-primary-fixed text-[64px] animate-pulse">biotech</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest/5 backdrop-blur-sm border border-white/10 p-8 md:p-12 relative reveal-on-scroll active">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="space-y-8">
+<div>
+<label class="font-label-caps text-label-caps text-primary-fixed block mb-4">WHAT'S IN YOUR CUPBOARD?</label>
+<div class="relative group">
+<input class="w-full bg-transparent border-b-2 border-outline/30 focus:border-primary-container text-white py-4 font-body-lg outline-none transition-all placeholder:text-white/20" placeholder="e.g., leftover peas, half an onion..." type="text">
+<span class="material-symbols-outlined absolute right-0 top-4 text-primary-fixed animate-pulse">search</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">CHILLI FLAKES</span>
+<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">STALE BREAD</span>
+<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">CHEESE SLICE</span>
+<span class="px-3 py-1 border border-primary-fixed/30 text-primary-fixed font-label-caps text-[10px] cursor-pointer hover:bg-primary-fixed/20 transition-colors">HOPE</span>
+</div>
+</div>
+<div class="bg-primary-container p-8 flex flex-col justify-between group cursor-pointer transition-all duration-500 hover:bg-white relative overflow-hidden glow-btn">
+<!-- Shimmer layer for "calculating" look -->
+<div class="absolute inset-0 shimmer-gold opacity-30 pointer-events-none"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="font-label-caps text-label-caps text-on-primary-container">RECOMMENDED FORMULA</span>
+<span class="material-symbols-outlined text-on-primary-container animate-spin" style="animation-duration: 4s">auto_awesome</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-primary-container mb-2">The "All-Nighter" Carbonara</h3>
+<p class="text-on-primary-container/80 font-body-md italic">Maggi + Cheese Slice + Crushed Peanuts + Stress</p>
+</div>
+<div class="mt-8 flex items-center gap-4 text-on-primary-container font-label-caps relative z-10">
+                        TRANSFORM ELEMENTS
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics: The Hostel Pulse -->
+<section class="py-24 md:py-48 px-6 md:px-margin-desktop max-w-container-max mx-auto" id="statistics">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stat 1 -->
+<div class="border-l-4 border-primary p-8 bg-surface-container-low hover:bg-surface-container transition-all duration-300 reveal-on-scroll active">
+<span class="font-label-caps text-label-caps text-secondary">VOLUME</span>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary my-4 js-counter" data-target="400">400M+</div>
+<p class="font-body-md text-secondary">Packets consumed during final exam weeks globally. The essential fuel for academic breakthroughs.</p>
+</div>
+<!-- Stat 2 -->
+<div class="border-l-4 border-primary p-8 bg-surface-container-low hover:bg-surface-container transition-all duration-300 reveal-on-scroll active" style="transition-delay: 150ms">
+<span class="font-label-caps text-label-caps text-secondary">INNOVATION</span>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary my-4 js-counter" data-target="12">12K+</div>
+<p class="font-body-md text-secondary">Startups ideated and whiteboards filled while sharing a single bowl in a hostel room.</p>
+</div>
+<!-- Stat 3 -->
+<div class="border-l-4 border-primary p-8 bg-surface-container-low hover:bg-surface-container transition-all duration-300 reveal-on-scroll active" style="transition-delay: 300ms">
+<span class="font-label-caps text-label-caps text-secondary">PRECISION</span>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary my-4 js-counter" data-target="120">120S</div>
+<p class="font-body-md text-secondary">The perfect interval. Time-optimized nutrition for the relentless pursuit of excellence.</p>
+</div>
+</div>
+</section>
+<!-- Personas: Hall of Legends -->
+<section class="bg-surface-container py-24 md:py-32" id="personas">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md mb-16 text-center italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">T</span><span style="transition-delay: 30ms;" class="">h</span><span style="transition-delay: 60ms;" class="">e</span><span style="transition-delay: 90ms;">&nbsp;</span><span style="transition-delay: 120ms;" class="">H</span><span style="transition-delay: 150ms;" class="">a</span><span style="transition-delay: 180ms;" class="">l</span><span style="transition-delay: 210ms;" class="">l</span><span style="transition-delay: 240ms;">&nbsp;</span><span style="transition-delay: 270ms;" class="">o</span><span style="transition-delay: 300ms;" class="">f</span><span style="transition-delay: 330ms;">&nbsp;</span><span style="transition-delay: 360ms;" class="">L</span><span style="transition-delay: 390ms;" class="">e</span><span style="transition-delay: 420ms;" class="">g</span><span style="transition-delay: 450ms;" class="">e</span><span style="transition-delay: 480ms;" class="">n</span><span style="transition-delay: 510ms;" class="">d</span><span style="transition-delay: 540ms;" class="">s</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-panel-gap">
+<!-- Archetype 1 -->
+<div class="bg-surface p-1 border-2 border-on-surface depth-card reveal-on-scroll active">
+<div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-surface-dim">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUvF9nffFXgTlfVB_cM9c2W3k1KdubKgPEKveTm0uG_dbc0th5WqhES4qxyPY0aNZF6XEsLmf9hl73NRytEARv8rnEoEeD0GMgIIxeAJ149yV-qpd656GArN0Mg0qSKk12SblOt12cxtwsWxGhfQAW64yr3FARs6wUODBn6_jDpnKSaTZ21HoRZHsMeos_CBpuMkCC0g2eyRxzXdqgjjWnDe92qNfTMRJfTk-uQJWtnHStwikOy0o5VgKkJ2KBYNLcXZ3fQdlOXhM">
+</div>
+<div class="p-6">
+<span class="font-label-caps text-[10px] text-primary">TYPE-01</span>
+<h3 class="font-headline-sm text-headline-sm my-2">The All-Nighter</h3>
+<p class="text-secondary font-body-md italic">"Sleep is a luxury I'll buy once I'm successful. Maggi is the bridge to that day."</p>
+</div>
+</div>
+<!-- Archetype 2 -->
+<div class="bg-surface p-1 border-2 border-on-surface depth-card reveal-on-scroll active" style="transition-delay: 200ms">
+<div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-surface-dim">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVH2cq8-bXET9Qrk1-dW5hVXEcrTb8ldFqOnKwGkPLTpyOFjF3YpZOzwQXJLRZxzyZj7lGmF2vbk2fo1grQl_6iOcSaW2UBj-ci_Bx3tYvndq9uVKaohYi8fcQXnF_ZXVmzCsFH_XkPY82XyKCaIgxlMs5vuoHWiMwJ5LKYznWdsP0J5S2jYox0qYcWIbr-Htgw14yXf_Dlg1o8aYbrBLuPpiK8eca8T2vmG0YuK2EVsAcxAbN-izYmoaMAZNQPnk3KdFo2FgemQI">
+</div>
+<div class="p-6">
+<span class="font-label-caps text-[10px] text-primary">TYPE-02</span>
+<h3 class="font-headline-sm text-headline-sm my-2">The Bug-Slayer</h3>
+<p class="text-secondary font-body-md italic">"Code, Eat, Debug, Repeat. If it doesn't compile, add more chili flakes."</p>
+</div>
+</div>
+<!-- Archetype 3 -->
+<div class="bg-surface p-1 border-2 border-on-surface depth-card reveal-on-scroll active" style="transition-delay: 400ms">
+<div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-surface-dim">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKKRdzLhplcqVRvE527OBi9ecsjAbu3w5XYL2AjfbfeW5yb_xbNqDXv7JvAgZu8voB5-GlYHdIphFSfJhMb9X6_reHf6d7UH7Ie4DbhPGVRJ0f7XgPVlf-DTZmpTRcTzqNaXdtKlS34YJoRBlOpHVFgUP3OpXTyF023Mz_lAMdcxm_qvvFO7wLDRts-2gFUrWLISkDgWYpajNDgyolDFjRhcF6AaxWG6_Rj6ss9eroyoikgytWYst4PqPLqunFEKKdktIPbZIUFQw">
+</div>
+<div class="p-6">
+<span class="font-label-caps text-[10px] text-primary">TYPE-03</span>
+<h3 class="font-headline-sm text-headline-sm my-2">The Budget-Master</h3>
+<p class="text-secondary font-body-md italic">"Finance isn't about how much you have, it's about how much you can achieve with a single packet."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Finale -->
+<section class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+<canvas class="absolute inset-0 pointer-events-none opacity-20 z-0" id="finale-particles" width="300" height="150"></canvas>
+<div class="absolute inset-0 bg-inverse-surface z-0 opacity-10"></div>
+<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+<div class="relative z-10 max-w-3xl">
+<span class="font-label-caps text-label-caps text-primary mb-8 block tracking-[0.5em] reveal-on-scroll active">THE FINAL CHAPTER</span>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-12 italic reveal-text js-stagger active"><span style="transition-delay: 0ms;" class="">J</span><span style="transition-delay: 30ms;" class="">o</span><span style="transition-delay: 60ms;" class="">i</span><span style="transition-delay: 90ms;" class="">n</span><span style="transition-delay: 120ms;">&nbsp;</span><span style="transition-delay: 150ms;" class="">t</span><span style="transition-delay: 180ms;" class="">h</span><span style="transition-delay: 210ms;" class="">e</span><span style="transition-delay: 240ms;">&nbsp;</span><span style="transition-delay: 270ms;" class="">L</span><span style="transition-delay: 300ms;" class="">e</span><span style="transition-delay: 330ms;" class="">g</span><span style="transition-delay: 360ms;" class="">e</span><span style="transition-delay: 390ms;" class="">n</span><span style="transition-delay: 420ms;" class="">d</span><span style="transition-delay: 450ms;" class="">.</span></h2>
+<div class="flex flex-col md:flex-row gap-6 justify-center reveal-on-scroll active">
+<button class="slide-fill-btn glow-btn bg-primary-container text-on-primary-container px-12 py-5 font-label-caps text-label-caps text-lg shadow-xl shadow-primary-container/20">
+                ORDER YOUR PACK
+            </button>
+<button class="px-12 py-5 border-2 border-on-surface font-label-caps text-label-caps text-lg hover:bg-on-surface hover:text-surface transition-all">
+                READ THE ARCHIVE
+            </button>
+</div>
+</div>
+<!-- Floating Particles/Steam Micro-animations -->
+<div class="absolute top-1/4 left-1/4 steam-anim opacity-20">
+<span class="material-symbols-outlined text-primary text-[48px]">cloud</span>
+</div>
+<div class="absolute bottom-1/4 right-1/4 steam-anim opacity-20" style="animation-delay: 1.5s">
+<span class="material-symbols-outlined text-primary text-[64px]">cloud</span>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest w-full py-16 border-t border-primary/20">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="font-display-lg text-headline-md text-primary-fixed">MAGGI LEGEND</div>
+<div class="flex flex-wrap justify-center gap-8 font-label-caps text-label-caps">
+<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Privacy</a>
+<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Alchemy Terms</a>
+<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Contact</a>
+<a class="text-secondary-fixed-dim hover:text-primary-fixed hover:tracking-widest transition-all duration-500" href="#">Archive</a>
+</div>
+<div class="font-label-caps text-[10px] text-secondary-fixed-dim opacity-60">
+            © 2024 MAGGI LEGEND. THE ART OF SURVIVAL.
+        </div>
+</div>
+</footer>
+<!-- Companion Widget (FAB) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container text-on-primary-container rounded-full shadow-2xl z-[60] flex items-center justify-center group animate-pulse hover:animate-none hover:scale-110 transition-all border-2 border-on-primary-container/20">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-12 transition-transform">restaurant</span>
+<div class="absolute -top-12 right-0 bg-on-surface text-surface text-[10px] font-label-caps py-1 px-3 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        SUMMON COMPANION
+    </div>
+</button>
+<script>
+    // --- Reveal System (IntersectionObserver) ---
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-on-scroll, .reveal-text').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // --- Staggered Typography Reveal ---
+    document.querySelectorAll('.reveal-text.js-stagger').forEach(heading => {
+        const text = heading.innerText;
+        heading.innerHTML = '';
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.innerText = char === ' ' ? '\u00A0' : char;
+            span.style.transitionDelay = `${i * 30}ms`;
+            heading.appendChild(span);
+        });
+    });
+
+    // --- Mouse Tracking Glow Effect ---
+    document.querySelectorAll('.glow-btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / btn.clientWidth) * 100;
+            const y = ((e.clientY - rect.top) / btn.clientHeight) * 100;
+            btn.style.setProperty('--x', x + '%');
+            btn.style.setProperty('--y', y + '%');
+        });
+    });
+
+    // --- Particle Background (Canvas) ---
+    function initParticles(canvasId, particleColor = '#725c00') {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const count = 50;
+
+        function resize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = -Math.random() * 1 - 0.2;
+                this.size = Math.random() * 2 + 1;
+                this.alpha = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.y < 0) this.reset();
+            }
+            draw() {
+                ctx.fillStyle = particleColor;
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < count; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+    
+    initParticles('hero-particles', '#ffd100');
+    initParticles('finale-particles', '#725c00');
+
+    // --- Steam Micro-interactions ---
+    document.querySelectorAll('.js-steam-container').forEach(container => {
+        setInterval(() => {
+            const particle = document.createElement('div');
+            particle.className = 'steam-particle';
+            particle.style.left = Math.random() * 80 + 10 + '%';
+            particle.style.bottom = '20%';
+            particle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            container.appendChild(particle);
+            setTimeout(() => particle.remove(), 4000);
+        }, 800);
+    });
+
+    // --- Parallax Effect for Manga Panels ---
+    window.addEventListener('scroll', () => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.js-parallax').forEach(img => {
+            const speed = 0.08;
+            const rect = img.parentElement.getBoundingClientRect();
+            const offset = rect.top + scrolled;
+            const yPos = (scrolled - offset) * speed;
+            img.style.transform = `scale(1.15) translateY(${yPos}px)`;
+        });
+    });
+
+    // --- Simple Counter Animation ---
+    const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.target);
+                let current = 0;
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        entry.target.innerText = target + (entry.target.innerText.includes('M') ? 'M+' : entry.target.innerText.includes('K') ? 'K+' : 'S');
+                        clearInterval(timer);
+                    } else {
+                        entry.target.innerText = Math.floor(current) + (entry.target.innerText.includes('M') ? 'M+' : entry.target.innerText.includes('K') ? 'K+' : 'S');
+                    }
+                }, 16);
+                countObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.js-counter').forEach(counter => countObserver.observe(counter));
+
+</script>
+
+
+</body></html>
